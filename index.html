@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <title>Alba Project</title>
+  </head>
+  <body>
+    <nav class="sidebar">
+      <a href="https://github.com/Jairox789" class="logo">Alba Project</a>
+
+      <div class="menu-content">
+        <ul class="menu-items">
+          <li class="item">
+            <div class="submenu-item">
+              <span>Funciones</span>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+
+            <ul class="menu-items submenu">
+              <div class="menu-title">
+                <i class="fa-solid fa-chevron-left"><</i>
+                Regresar
+              </div>
+
+              <li class="item">
+                <div id="draggableImprimir" draggable="true">Imprimir</div>
+                <div id="draggableVariable" draggable="true">
+                  Crear variable
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="navbar">
+      <i class="fa-solid fa-bars" id="sidebar-close">Compilador</i>
+    </nav>
+    <main>
+      <div class="out-in">
+        <div class="card-container" id="myCard">
+          <div class="interface-code">
+            <div id="droppable">Suelta aquí</div>
+            <div class="code-log"></div>
+          </div>
+
+          <div class="code-terminal">
+            <form id="form">
+              <div class="line-numbers-wrapper">
+                <div class="line-numbers"></div>
+                <textarea
+                  id="text-area"
+                  name="code"
+                  rows="10"
+                  cols="50"
+                ></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="output">
+          <div class="window">Alba Project Terminal</div>
+          <div id="terminal-code"></div>
+        </div>
+
+        <div class="btn-next">
+          <button id="btnSiguiente">></button>
+        </div>
+      </div>
+      <button id="btnCompile" type="submit">Compilar</button>
+
+      <dialog close id="modal">
+        <div class="modal-impresion">
+          <div class="impresion">
+            <div class="titulo-impresion">
+              <h2>Función de impresión</h2>
+              <span>
+                Puedes imprimir lo que desees, recuerda para imprimir texto usa
+                las comillas dobles "", también puedes hacer tus operaciones
+                aritmeticas!
+              </span>
+            </div>
+            <div class="menu-impresion">
+              <input
+                id="inputImpresion"
+                placeholder="Hola mundo!"
+                type="text"
+              />
+              <button class="btn btn-primary" id="btnImpresion">Aceptar</button>
+            </div>
+            <h3 id="imprimirPreview"></h3>
+          </div>
+        </div>
+        <div class="modal-variable">
+          <div class="titulo-impresion">
+            <h2>Crear variable</h2>
+            <span>
+              Puedes empezar a crear tus propias variables ya sean de texto o
+              númericas.
+            </span>
+          </div>
+          <div class="menu-impresion">
+            <input
+              id="inputVariableNombre"
+              placeholder="Nombre de variable"
+              type="text"
+            />
+            <input
+              id="inputVariableValor"
+              placeholder="Valor de la variable"
+              type="text"
+            />
+
+            <label for="tipoVariable">Selecciona una opción:</label>
+            <select id="tipoVariable">
+              <option value="opcion1">Texto</option>
+              <option value="opcion2">Número</option>
+            </select>
+
+            <button id="btnVariable">Aceptar</button>
+          </div>
+          <h3 id="variablePreview"></h3>
+        </div>
+      </dialog>
+    </main>
+
+    <script src="./scripts/gramatica.js"></script>
+
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
